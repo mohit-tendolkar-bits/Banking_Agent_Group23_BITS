@@ -1,4 +1,0 @@
-family,empty_outputs_%,valid_bigrams_%,banking_word_%,distinct_outputs_%,mean_length,real_mean_length,follows_given_prefix_%,train_seconds,note
-Autoregressive (trigram LM),0.0,100.0,74.0,99.5,10.2,12.0,100.0,0.1,likelihood: exact
-VAE (bag-of-words),0.0,25.1,76.0,100.0,11.2,12.0,0.0,13.1,ELBO loss/msg: 58.2
-GAN (bag-of-words),0.0,32.8,78.5,100.0,12.3,12.0,0.0,48.5,no likelihood
