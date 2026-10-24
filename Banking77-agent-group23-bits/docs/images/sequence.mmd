@@ -1,0 +1,27 @@
+sequenceDiagram
+    autonumber
+    actor C as Customer
+    participant H as handle()
+    participant CI as classify_intent()
+    participant R as retrieve()
+    participant LLM as LLM generate()
+    participant HI as handle_intent()
+
+    C->>H: message
+    H->>CI: message
+    CI->>R: message
+    R-->>CI: 5 most similar train rows
+    CI->>LLM: prompt = 77 intent names + constraint + 5 examples + message (greedy, 32 tokens)
+    LLM-->>CI: "card_arrival"
+    Note over CI: parse_intent, then validate against the 77-name schema
+    CI-->>H: {"intent": "card_arrival"} or {"error": ...}
+
+    alt error
+        H-->>C: "Sorry, I could not understand your request. Could you say it in a different way?"
+    else valid intent
+        H->>HI: intent
+        HI-->>H: {intent, status: done | information | unsupported, result, [reference]}
+        H->>LLM: chat history: system prompt, message, both tool calls, both tool results (temperature 0.7, 80 tokens)
+        LLM-->>H: reply text
+        H-->>C: reply
+    end
