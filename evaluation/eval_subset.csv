@@ -1,0 +1,101 @@
+text,category
+How do I track my card?,card_arrival
+How long should my new card take to arrive?,card_arrival
+What foreign exchange rate will you use?,exchange_rate
+when does the rate get determined,exchange_rate
+Why am I unable to take money from my card but the statement says the transaction is still pending?,pending_cash_withdrawal
+I need my card quickly,card_delivery_estimate
+When can I expect to receive my new card?,card_delivery_estimate
+I can't get my card to work.,card_not_working
+My actual card isn't working.,card_not_working
+What all currencies can be exchanged?,exchange_via_app
+How do I exchange currency?,exchange_via_app
+Can I open an account for a child?,age_limit
+How can I unblock a blocked pin number for my account?,pin_blocked
+Can you unblock my pin after too many wrong pin attempts?,pin_blocked
+Contactless isn't working for me,contactless_not_working
+My contactless is not working,contactless_not_working
+Why is my top-up still outstanding?,pending_top_up
+I need to make an immediate cancellation related to a transfer. This was a mistake. Please assist quickly so this does not actually go through.,cancel_transfer
+I tried to get $100 but I just got $20,wrong_amount_of_cash_received
+"I tried to take out cash but the amount isn't right, so what do I do?",wrong_amount_of_cash_received
+"I completed an in country transfer a few days ago and was sure to check the account information several times since the transaction was completed, but the funds are still not available. What is the problem?",transfer_not_received_by_recipient
+My money transfer has not arrived.,transfer_not_received_by_recipient
+help me obtain a virtual card,getting_virtual_card
+Where is the virtual card located?,getting_virtual_card
+Can I order a virtual card?,getting_virtual_card
+Where are the virtual cards located?,getting_virtual_card
+Is my card usable anywhere?,card_acceptance
+Can I make online purchases with my card?,card_acceptance
+The application reverted my top-up.,top_up_reverted
+On my last transaction it seem that my top-up was not successful.,top_up_reverted
+"When I deposit cheques and cash, my balance does not update.",balance_not_updated_after_cheque_or_cash_deposit
+I tired to deposit some cash into my account but it's not there,balance_not_updated_after_cheque_or_cash_deposit
+"I sent you a cheque couple days ago, nothing happened to my account yet! This is unacceptable, where is my money??",balance_not_updated_after_cheque_or_cash_deposit
+What do i have to do to change my name?,edit_personal_details
+Why do I have to give you all of my identification details?,why_verify_identity
+Why is it asking me to verify my identity,why_verify_identity
+Why did I need to verfiy my identity?,why_verify_identity
+Can I give my friends access to my account so they can top it up for me?,topping_up_by_card
+How many card payments can I use on a disposable card?,disposable_card_limits
+Are you able to explain the restrictions of the disposable cards?,disposable_card_limits
+I have to have several disposable cards per day.,disposable_card_limits
+What are the limits to using disposable virtual cards?,disposable_card_limits
+My card was used without my permission.,compromised_card
+"I'm not certain, but someone may be using my card.",compromised_card
+How many miles away is the ATM?,atm_support
+Where is the nearest bank machine?,atm_support
+Can I use this card at an ATM?,atm_support
+Why would I have a pending payment?,pending_card_payment
+I've lost track of my phone or someone stole it.,lost_or_stolen_phone
+Trouble transferring transaction contact for help,declined_transfer
+Still waiting on a refund.,Refund_not_showing_up
+"Hi, As suggested by you, i have asked the seller to initiate the refund, it has been a week and i haven't received my money. Please advise.",Refund_not_showing_up
+How long will it take to get my refund,Refund_not_showing_up
+I have no idea why my card payment did not work.,declined_card_payment
+They declined my card payment.,declined_card_payment
+"This company isn't good, I would like to delete my account.",terminate_account
+Can you tell me how to close my account?,terminate_account
+I was at an ATM and it swallowed my card.,card_swallowed
+What happens if my card is stuck in the ATM?,card_swallowed
+I made a payment that got charged twice instead of once.,transaction_charged_twice
+Can I verify the source of my funds?,verify_source_of_funds
+When does the money get transferred to my account,transfer_timing
+How long do I have to wait for a transfer from the US?,transfer_timing
+"I am attempting to make a purchase online, but my card is not working.  I know there are funds available, is this an issue on the banks end?",reverted_card_payment?
+What do I need to do to change my PIN?,change_pin
+What is the maximum I can transfer before I incur fees?,transfer_fee_charged
+What extra charges are there?,transfer_fee_charged
+Is it possible for me to get money out in a different currency?,receiving_money
+What all is needed to verify the top-up card?,verify_top_up
+How is the top-up card verified?,verify_top_up
+The top-up verification code is missing,verify_top_up
+Is there a fee for sending out more than one card?,getting_spare_card
+Are there restrictions for ordering extra cards?,getting_spare_card
+I'm looking for the cash deposit top up option but can't find it. Can you help me?,top_up_by_cash_or_cheque
+Where are the options to top up with a cheque on my account?,top_up_by_cash_or_cheque
+How can I top up with this cheque I got?,top_up_by_cash_or_cheque
+Where can I get my card at?,order_physical_card
+Where do I order my card?,order_physical_card
+My disposable virtual card is broken.,virtual_card_not_working
+Why did the disposable virtual card which I used to pay a gym subscription get denied?,virtual_card_not_working
+Why isn't my virtual card working?,virtual_card_not_working
+Can I make a withdraw if I am out of country from with out any fees at an ATM?,wrong_exchange_rate_for_cash_withdrawal
+My cash withdrawal charged me the wrong exchange rate,wrong_exchange_rate_for_cash_withdrawal
+"Is there anyway, I can get a disposable virtual card?",get_disposable_virtual_card
+What's the deal? My card was just denied for top up. Why is it not going through?,top_up_failed
+I don't think my top up is working correctly,top_up_failed
+I just completed a bank transfer and the balance didn't update,balance_not_updated_after_bank_transfer
+Why is my balance the same?  I processed a transfer.,balance_not_updated_after_bank_transfer
+"I made a bank transfer a couple of hours ago from my UK account.  It hasn't appeared, can you check to make sure it went through?",balance_not_updated_after_bank_transfer
+There is a problem with my card. Somebody has removed money from my account in a town I haven't been to. Can you please freeze my account immediately?,cash_withdrawal_not_recognised
+Tell me how to go about activating my new card?,activate_my_card
+A fee was charged for my recent withdrawal.,cash_withdrawal_charge
+I got a fee for an ATM withdrawal.,cash_withdrawal_charge
+What do I do if my card is expiring soon?,card_about_to_expire
+My top-up for Google Pay isn't working,apple_pay_or_google_pay
+Why isn't my top up working using my saved American Express in ApplePay?,apple_pay_or_google_pay
+What do you need for my identity check?,verify_my_identity
+Are there any documents needed for the identity check?,verify_my_identity
+Do I need any kind of documentation for the identity check?,verify_my_identity
+"I need a card, but I'm in the US at the moment.",country_support

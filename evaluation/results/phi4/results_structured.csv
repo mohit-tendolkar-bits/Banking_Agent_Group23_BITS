@@ -1,0 +1,101 @@
+text,category,output,error,predicted,confidence,correct
+How do I track my card?,card_arrival,"{""intent"": ""card_linking"", ""confidence"": 0.9}",,card_linking,0.9,False
+How long should my new card take to arrive?,card_arrival,"{""intent"": ""card_arrival"", ""confidence"": 0.9}",,card_arrival,0.9,True
+What foreign exchange rate will you use?,exchange_rate,"{""intent"": ""exchange_rate"", ""confidence"": 0.9}",,exchange_rate,0.9,True
+when does the rate get determined,exchange_rate,"{""intent"": ""exchange_rate"", ""confidence"": 0.9}",,exchange_rate,0.9,True
+Why am I unable to take money from my card but the statement says the transaction is still pending?,pending_cash_withdrawal,"{""intent"": ""pending_cash_withdrawal"", ""confidence"": 0.9}",,pending_cash_withdrawal,0.9,True
+I need my card quickly,card_delivery_estimate,"{""intent"": ""card_arrival"", ""confidence"": 0.9}",,card_arrival,0.9,False
+When can I expect to receive my new card?,card_delivery_estimate,"{""intent"": ""card_arrival"", ""confidence"": 0.9}",,card_arrival,0.9,False
+I can't get my card to work.,card_not_working,"{""intent"": ""card_not_working"", ""confidence"": 0.9}",,card_not_working,0.9,True
+My actual card isn't working.,card_not_working,"{""intent"": ""card_not_working"", ""confidence"": 0.9}",,card_not_working,0.9,True
+What all currencies can be exchanged?,exchange_via_app,"{""intent"": ""fiat_currency_support"", ""confidence"": 0.9}",,fiat_currency_support,0.9,False
+How do I exchange currency?,exchange_via_app,"{""intent"": ""exchange_rate"", ""confidence"": 0.9}",,exchange_rate,0.9,False
+Can I open an account for a child?,age_limit,"{""intent"": ""edit_personal_details"", ""confidence"": 0.9}",,edit_personal_details,0.9,False
+How can I unblock a blocked pin number for my account?,pin_blocked,"{""intent"": ""pin_blocked"", ""confidence"": 1.0}",,pin_blocked,1.0,True
+Can you unblock my pin after too many wrong pin attempts?,pin_blocked,"{""intent"": ""pin_blocked"", ""confidence"": 1.0}",,pin_blocked,1.0,True
+Contactless isn't working for me,contactless_not_working,"{""intent"": ""contactless_not_working"", ""confidence"": 1.0}",,contactless_not_working,1.0,True
+My contactless is not working,contactless_not_working,"{""intent"": ""contactless_not_working"", ""confidence"": 1.0}",,contactless_not_working,1.0,True
+Why is my top-up still outstanding?,pending_top_up,"{""intent"": ""top_up_failed"", ""confidence"": 0.9}",,top_up_failed,0.9,False
+I need to make an immediate cancellation related to a transfer. This was a mistake. Please assist quickly so this does not actually go through.,cancel_transfer,"{""intent"": ""cancel_transfer"", ""confidence"": 0.9}",,cancel_transfer,0.9,True
+I tried to get $100 but I just got $20,wrong_amount_of_cash_received,"{""intent"": ""wrong_exchange_rate_for_cash_withdrawal"", ""confidence"": 0.9}",,wrong_exchange_rate_for_cash_withdrawal,0.9,False
+"I tried to take out cash but the amount isn't right, so what do I do?",wrong_amount_of_cash_received,"{""intent"": ""wrong_exchange_rate_for_cash_withdrawal"", ""confidence"": 0.9}",,wrong_exchange_rate_for_cash_withdrawal,0.9,False
+"I completed an in country transfer a few days ago and was sure to check the account information several times since the transaction was completed, but the funds are still not available. What is the problem?",transfer_not_received_by_recipient,"{""intent"": ""transfer_not_received_by_recipient"", ""confidence"": 0.9}",,transfer_not_received_by_recipient,0.9,True
+My money transfer has not arrived.,transfer_not_received_by_recipient,"{""intent"": ""transfer_not_received_by_recipient"", ""confidence"": 0.9}",,transfer_not_received_by_recipient,0.9,True
+help me obtain a virtual card,getting_virtual_card,"{""intent"": ""get_virtual_card"", ""confidence"": 1.0}",schema: $.intent = 'get_virtual_card' is invalid,get_virtual_card,1.0,False
+Where is the virtual card located?,getting_virtual_card,"{""intent"": ""getting_virtual_card"", ""confidence"": 0.9}",,getting_virtual_card,0.9,True
+Can I order a virtual card?,getting_virtual_card,"{""intent"": ""get_virtual_card"", ""confidence"": 1.0}",schema: $.intent = 'get_virtual_card' is invalid,get_virtual_card,1.0,False
+Where are the virtual cards located?,getting_virtual_card,"{""intent"": ""getting_virtual_card"", ""confidence"": 0.9}",,getting_virtual_card,0.9,True
+Is my card usable anywhere?,card_acceptance,"{""intent"": ""card_acceptance"", ""confidence"": 0.9}",,card_acceptance,0.9,True
+Can I make online purchases with my card?,card_acceptance,"{""intent"": ""card_acceptance"", ""confidence"": 0.9}",,card_acceptance,0.9,True
+The application reverted my top-up.,top_up_reverted,"{""intent"": ""top_up_reverted"", ""confidence"": 1.0}",,top_up_reverted,1.0,True
+On my last transaction it seem that my top-up was not successful.,top_up_reverted,"{""intent"": ""top_up_failed"", ""confidence"": 0.9}",,top_up_failed,0.9,False
+"When I deposit cheques and cash, my balance does not update.",balance_not_updated_after_cheque_or_cash_deposit,"{""intent"": ""balance_not_updated_after_cheque_or_cash_deposit"", ""confidence"": 0.9}",,balance_not_updated_after_cheque_or_cash_deposit,0.9,True
+I tired to deposit some cash into my account but it's not there,balance_not_updated_after_cheque_or_cash_deposit,"{""intent"": ""pending_cash_withdrawal"", ""confidence"": 0.9}",,pending_cash_withdrawal,0.9,False
+"I sent you a cheque couple days ago, nothing happened to my account yet! This is unacceptable, where is my money??",balance_not_updated_after_cheque_or_cash_deposit,"{""intent"": ""pending_cash_withdrawal"", ""confidence"": 0.9}",,pending_cash_withdrawal,0.9,False
+What do i have to do to change my name?,edit_personal_details,"{""intent"": ""edit_personal_details"", ""confidence"": 0.9}",,edit_personal_details,0.9,True
+Why do I have to give you all of my identification details?,why_verify_identity,"{""intent"": ""verify_source_of_funds"", ""confidence"": 0.9}",,verify_source_of_funds,0.9,False
+Why is it asking me to verify my identity,why_verify_identity,"{""intent"": ""verify_source_of_funds"", ""confidence"": 0.9}",,verify_source_of_funds,0.9,False
+Why did I need to verfiy my identity?,why_verify_identity,"{""intent"": ""verify_source_of_funds"", ""confidence"": 0.9}",,verify_source_of_funds,0.9,False
+Can I give my friends access to my account so they can top it up for me?,topping_up_by_card,"{""intent"": ""verify_source_of_funds"", ""confidence"": 0.8}",,verify_source_of_funds,0.8,False
+How many card payments can I use on a disposable card?,disposable_card_limits,"{""intent"": ""disposable_card_limits"", ""confidence"": 0.9}",,disposable_card_limits,0.9,True
+Are you able to explain the restrictions of the disposable cards?,disposable_card_limits,"{""intent"": ""disposable_card_limits"", ""confidence"": 0.9}",,disposable_card_limits,0.9,True
+I have to have several disposable cards per day.,disposable_card_limits,"{""intent"": ""disposable_card_limits"", ""confidence"": 0.9}",,disposable_card_limits,0.9,True
+What are the limits to using disposable virtual cards?,disposable_card_limits,"{""intent"": ""disposable_card_limits"", ""confidence"": 0.9}",,disposable_card_limits,0.9,True
+My card was used without my permission.,compromised_card,"{""intent"": ""card_not_working"", ""confidence"": 0.9}",,card_not_working,0.9,False
+"I'm not certain, but someone may be using my card.",compromised_card,"{""intent"": ""compromised_card"", ""confidence"": 0.9}",,compromised_card,0.9,True
+How many miles away is the ATM?,atm_support,"{""intent"": ""atm_support"", ""confidence"": 0.9}",,atm_support,0.9,True
+Where is the nearest bank machine?,atm_support,"{""intent"": ""atm_support"", ""confidence"": 0.9}",,atm_support,0.9,True
+Can I use this card at an ATM?,atm_support,"{""intent"": ""card_acceptance"", ""confidence"": 0.9}",,card_acceptance,0.9,False
+Why would I have a pending payment?,pending_card_payment,"{""intent"": ""pending_transfer"", ""confidence"": 0.9}",,pending_transfer,0.9,False
+I've lost track of my phone or someone stole it.,lost_or_stolen_phone,"{""intent"": ""lost_or_stolen_phone"", ""confidence"": 1.0}",,lost_or_stolen_phone,1.0,True
+Trouble transferring transaction contact for help,declined_transfer,"{""intent"": ""transfer_timing"", ""confidence"": 0.9}",,transfer_timing,0.9,False
+Still waiting on a refund.,Refund_not_showing_up,"{""intent"": ""refund_not_showing_up"", ""confidence"": 0.9}",schema: $.intent = 'refund_not_showing_up' is invalid,refund_not_showing_up,0.9,False
+"Hi, As suggested by you, i have asked the seller to initiate the refund, it has been a week and i haven't received my money. Please advise.",Refund_not_showing_up,"{""intent"": ""refund_not_showing_up"", ""confidence"": 0.9}",schema: $.intent = 'refund_not_showing_up' is invalid,refund_not_showing_up,0.9,False
+How long will it take to get my refund,Refund_not_showing_up,"{""intent"": ""refund_not_showing_up"", ""confidence"": 0.9}",schema: $.intent = 'refund_not_showing_up' is invalid,refund_not_showing_up,0.9,False
+I have no idea why my card payment did not work.,declined_card_payment,"{""intent"": ""card_not_working"", ""confidence"": 0.9}",,card_not_working,0.9,False
+They declined my card payment.,declined_card_payment,"{""intent"": ""declined_card_payment"", ""confidence"": 0.9}",,declined_card_payment,0.9,True
+"This company isn't good, I would like to delete my account.",terminate_account,"{""intent"": ""terminate_account"", ""confidence"": 0.9}",,terminate_account,0.9,True
+Can you tell me how to close my account?,terminate_account,"{""intent"": ""terminate_account"", ""confidence"": 0.9}",,terminate_account,0.9,True
+I was at an ATM and it swallowed my card.,card_swallowed,"{""intent"": ""card_swallowed"", ""confidence"": 1.0}",,card_swallowed,1.0,True
+What happens if my card is stuck in the ATM?,card_swallowed,"{""intent"": ""card_not_working"", ""confidence"": 0.9}",,card_not_working,0.9,False
+I made a payment that got charged twice instead of once.,transaction_charged_twice,"{""intent"": ""transaction_charged_twice"", ""confidence"": 0.9}",,transaction_charged_twice,0.9,True
+Can I verify the source of my funds?,verify_source_of_funds,"{""intent"": ""verify_source_of_funds"", ""confidence"": 1.0}",,verify_source_of_funds,1.0,True
+When does the money get transferred to my account,transfer_timing,"{""intent"": ""transfer_timing"", ""confidence"": 0.9}",,transfer_timing,0.9,True
+How long do I have to wait for a transfer from the US?,transfer_timing,"{""intent"": ""transfer_timing"", ""confidence"": 0.9}",,transfer_timing,0.9,True
+"I am attempting to make a purchase online, but my card is not working.  I know there are funds available, is this an issue on the banks end?",reverted_card_payment?,"{""intent"": ""card_not_working"", ""confidence"": 0.9}",,card_not_working,0.9,False
+What do I need to do to change my PIN?,change_pin,"{""intent"": ""change_pin"", ""confidence"": 1.0}",,change_pin,1.0,True
+What is the maximum I can transfer before I incur fees?,transfer_fee_charged,"{""intent"": ""transfer_fee_charged"", ""confidence"": 0.9}",,transfer_fee_charged,0.9,True
+What extra charges are there?,transfer_fee_charged,"{""intent"": ""extra_charge_on_statement"", ""confidence"": 0.9}",,extra_charge_on_statement,0.9,False
+Is it possible for me to get money out in a different currency?,receiving_money,"{""intent"": ""fiat_currency_support"", ""confidence"": 0.9}",,fiat_currency_support,0.9,False
+What all is needed to verify the top-up card?,verify_top_up,"{""intent"": ""verify_top_up"", ""confidence"": 0.9}",,verify_top_up,0.9,True
+How is the top-up card verified?,verify_top_up,"{""intent"": ""verify_top_up"", ""confidence"": 0.9}",,verify_top_up,0.9,True
+The top-up verification code is missing,verify_top_up,"{""intent"": ""unable_to_verify_identity"", ""confidence"": 0.9}",,unable_to_verify_identity,0.9,False
+Is there a fee for sending out more than one card?,getting_spare_card,"{""intent"": ""top_up_limits"", ""confidence"": 0.9}",,top_up_limits,0.9,False
+Are there restrictions for ordering extra cards?,getting_spare_card,"{""intent"": ""extra_charge_on_statement"", ""confidence"": 0.9}",,extra_charge_on_statement,0.9,False
+I'm looking for the cash deposit top up option but can't find it. Can you help me?,top_up_by_cash_or_cheque,"{""intent"": ""top_up_by_cash_or_cheque"", ""confidence"": 0.9}",,top_up_by_cash_or_cheque,0.9,True
+Where are the options to top up with a cheque on my account?,top_up_by_cash_or_cheque,"{""intent"": ""top_up_by_cheque"", ""confidence"": 0.9}",schema: $.intent = 'top_up_by_cheque' is invalid,top_up_by_cheque,0.9,False
+How can I top up with this cheque I got?,top_up_by_cash_or_cheque,"{""intent"": ""top_up_by_cheque"", ""confidence"": 0.9}",schema: $.intent = 'top_up_by_cheque' is invalid,top_up_by_cheque,0.9,False
+Where can I get my card at?,order_physical_card,"{""intent"": ""card_arrival"", ""confidence"": 0.9}",,card_arrival,0.9,False
+Where do I order my card?,order_physical_card,"{""intent"": ""order_physical_card"", ""confidence"": 0.9}",,order_physical_card,0.9,True
+My disposable virtual card is broken.,virtual_card_not_working,"{""intent"": ""virtual_card_not_working"", ""confidence"": 0.9}",,virtual_card_not_working,0.9,True
+Why did the disposable virtual card which I used to pay a gym subscription get denied?,virtual_card_not_working,"{""intent"": ""card_not_working"", ""confidence"": 0.9}",,card_not_working,0.9,False
+Why isn't my virtual card working?,virtual_card_not_working,"{""intent"": ""virtual_card_not_working"", ""confidence"": 0.9}",,virtual_card_not_working,0.9,True
+Can I make a withdraw if I am out of country from with out any fees at an ATM?,wrong_exchange_rate_for_cash_withdrawal,"{""intent"": ""country_support"", ""confidence"": 0.9}",,country_support,0.9,False
+My cash withdrawal charged me the wrong exchange rate,wrong_exchange_rate_for_cash_withdrawal,"{""intent"": ""wrong_exchange_rate_for_cash_withdrawal"", ""confidence"": 0.9}",,wrong_exchange_rate_for_cash_withdrawal,0.9,True
+"Is there anyway, I can get a disposable virtual card?",get_disposable_virtual_card,"{""intent"": ""get_disposable_virtual_card"", ""confidence"": 1.0}",,get_disposable_virtual_card,1.0,True
+What's the deal? My card was just denied for top up. Why is it not going through?,top_up_failed,"{""intent"": ""card_payment_not_recognised"", ""confidence"": 0.9}",,card_payment_not_recognised,0.9,False
+I don't think my top up is working correctly,top_up_failed,"{""intent"": ""top_up_failed"", ""confidence"": 0.9}",,top_up_failed,0.9,True
+I just completed a bank transfer and the balance didn't update,balance_not_updated_after_bank_transfer,"{""intent"": ""balance_not_updated_after_bank_transfer"", ""confidence"": 0.9}",,balance_not_updated_after_bank_transfer,0.9,True
+Why is my balance the same?  I processed a transfer.,balance_not_updated_after_bank_transfer,"{""intent"": ""balance_not_updated_after_bank_transfer"", ""confidence"": 0.9}",,balance_not_updated_after_bank_transfer,0.9,True
+"I made a bank transfer a couple of hours ago from my UK account.  It hasn't appeared, can you check to make sure it went through?",balance_not_updated_after_bank_transfer,"{""intent"": ""transfer_not_received_by_recipient"", ""confidence"": 0.9}",,transfer_not_received_by_recipient,0.9,False
+There is a problem with my card. Somebody has removed money from my account in a town I haven't been to. Can you please freeze my account immediately?,cash_withdrawal_not_recognised,"{""intent"": ""compromised_card"", ""confidence"": 0.9}",,compromised_card,0.9,False
+Tell me how to go about activating my new card?,activate_my_card,"{""intent"": ""activate_my_card"", ""confidence"": 1.0}",,activate_my_card,1.0,True
+A fee was charged for my recent withdrawal.,cash_withdrawal_charge,"{""intent"": ""cash_withdrawal_charge"", ""confidence"": 0.9}",,cash_withdrawal_charge,0.9,True
+I got a fee for an ATM withdrawal.,cash_withdrawal_charge,"{""intent"": ""cash_withdrawal_charge"", ""confidence"": 0.9}",,cash_withdrawal_charge,0.9,True
+What do I do if my card is expiring soon?,card_about_to_expire,"{""intent"": ""card_about_to_expire"", ""confidence"": 0.9}",,card_about_to_expire,0.9,True
+My top-up for Google Pay isn't working,apple_pay_or_google_pay,"{""intent"": ""top_up_failed"", ""confidence"": 0.9}",,top_up_failed,0.9,False
+Why isn't my top up working using my saved American Express in ApplePay?,apple_pay_or_google_pay,"{""intent"": ""card_payment_not_recognised"", ""confidence"": 0.9}",,card_payment_not_recognised,0.9,False
+What do you need for my identity check?,verify_my_identity,"{""intent"": ""verify_source_of_funds"", ""confidence"": 0.9}",,verify_source_of_funds,0.9,False
+Are there any documents needed for the identity check?,verify_my_identity,"{""intent"": ""verify_source_of_funds"", ""confidence"": 0.9}",,verify_source_of_funds,0.9,False
+Do I need any kind of documentation for the identity check?,verify_my_identity,"{""intent"": ""verify_source_of_funds"", ""confidence"": 0.9}",,verify_source_of_funds,0.9,False
+"I need a card, but I'm in the US at the moment.",country_support,"{""intent"": ""card_arrival"", ""confidence"": 0.9}",,card_arrival,0.9,False

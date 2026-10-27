@@ -1,0 +1,4 @@
+model,generative_family,train_accuracy,test_accuracy
+GRU causal language model with intent head,Autoregressive / causal LM,0.31120663800859744,0.2863636363636364
+TF-IDF VAE with intent head,Variational autoencoder,0.8588423472958112,0.7652597402597403
+Conditional TF-IDF auxiliary-classifier GAN,Generative adversarial network,0.018994301709487155,0.013636363636363636
