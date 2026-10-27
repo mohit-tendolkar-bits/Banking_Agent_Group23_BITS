@@ -496,10 +496,11 @@ message: tokenization (`How do I track my card?` is 7 tokens with their
 IDs), embeddings (shape 1 x 7 x 1536), the LM head (top-5 next-token
 probabilities), and greedy generation.
 
-**Verified.** The 1.5B run was executed end to end with `nbclient`:
-0 errors, same numbers as the saved CSVs, outputs saved in the file. The
-subset, reference-classifier, and held-out cells were added after that run
-and have no saved outputs yet; the next full run on Colab fills them.
+**Historical verification.** The earlier notebook version was executed
+end to end with `nbclient`. Its saved outputs are no longer embedded because
+they showed random evaluation subsets that covered only part of the 77
+intents. The current notebook has no cached outputs; regenerate its results
+by running the cells on a machine with enough memory for Qwen.
 
 ---
 
@@ -542,7 +543,7 @@ prose, the contribution statement in Appendix B, and the slides.
 
 **What we added.** `evaluation/peft_lora_comparison.py` fine-tunes rank-8 LoRA adapters on the Qwen causal LM using response-only intent-label loss over `data/train.csv`. It then generates predictions on the existing development and held-out subsets. The adapter is saved separately under `artifacts/`, metrics and prediction rows are saved in `evaluation/results/`, and the default assistant code is unchanged.
 
-**Evaluation contract.** Training uses only the official training split. The development subset can be used to compare against the existing prompt (0.43) and retrieval (0.84) results; the held-out subset remains separate and should be used once for final reporting. Do not tune against the held-out result.
+**Evaluation contract.** Training uses only the official training split. The development subset can be used to compare prompting, RAG, and PEFT after the model-dependent experiments have been rerun on the current split. Earlier prompt (0.43) and retrieval (0.84) scores used a previous random sample and are not measurements on the new all-intent subsets. The held-out subset remains separate and should be used once for final reporting. Do not tune against the held-out result.
 
 **Reproduction.** `uv run -m evaluation.peft_lora_comparison`. PEFT was added to `pyproject.toml` and `uv.lock`. This workspace has CPU-only PyTorch and only about 1.1 GB free physical memory, insufficient for fine-tuning the 1.5B base model, so a full run and PEFT accuracy numbers have not been produced here. Use a suitable CUDA GPU. `--max-train-samples` and `--max-eval-samples` are for smoke tests only.
 
@@ -553,3 +554,25 @@ prose, the contribution statement in Appendix B, and the slides.
 | Group review | Read `FINAL_REPORT.md`, check numbers against the notebook, fill the title page and Appendix I (contribution statement) | Final report |
 | Slides | About 8 slides from the report tables | 8 to 10 minute presentation |
 | Report | Write up all of the above. 10 to 15 pages. | Report + slides |
+
+## Step 15: Notebook refresh and intent-covered evaluation
+
+**What changed.** The notebook now clones
+`mohit-tendolkar-bits/Banking_Agent_Group23_BITS`, explains every code cell,
+and includes the causal-LM/VAE/GAN family benchmark plus the prompting/RAG/
+PEFT comparison. PEFT training and interactive chat are opt-in so Run All
+does not launch a resource-intensive training job or wait for keyboard input.
+
+**Evaluation design.** Both deterministic 100-row subsets now include all
+77 intents and have no overlapping examples. Each reserves one example per
+intent, then fills the remaining 23 rows from unused examples. Existing
+model-dependent scores were produced on the previous random subsets; rerun
+those experiments before reporting scores on the new split.
+
+**Validation.** Notebook JSON and cell syntax passed validation; its setup,
+subset-generation, and dataset-inspection cells executed successfully in
+IPython. The family-comparison training path passed a one-epoch smoke test.
+A full notebook run was not possible in this environment: PyTorch is CPU-only
+and less than 1 GB of memory was available, which is insufficient to load the
+1.5B Qwen model. Full prompt/RAG/PEFT metrics must be regenerated on a suitable
+GPU runtime.

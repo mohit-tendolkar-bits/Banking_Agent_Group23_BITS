@@ -5,7 +5,7 @@ PCAM ZG516 Applied Generative AI. Group Major Project, Assignment 1.
 **Group:** _[group number]_
 **Members:** _[name, ID]_ · _[name, ID]_ · _[name, ID]_ · _[name, ID]_
 **Dataset option:** D1, BANKING77
-**Code:** https://github.com/2025paml556-bhoomika/banking-agent
+**Code:** https://github.com/mohit-tendolkar-bits/Banking_Agent_Group23_BITS
 
 ---
 
@@ -59,9 +59,10 @@ The first three rows show the near-synonym problem: three messages, two labels, 
 
 **Data preparation**
 
-- No text cleaning: the model must handle messages as customers write them. No training on the train file, except for the classical reference classifier. The train file is only a pool of labelled examples that we show to the model inside the prompt.
-- Two fixed subsets are cut from the test file with `evaluation/make_eval_subset.py` and committed. The **development subset** (`eval_subset.csv`, 100 rows, `random_state=0`, 53 intents) is used by every experiment to compare approaches. The **held-out subset** (`heldout_subset.csv`, 100 different rows, `random_state=1`, 57 intents, no overlap) is used once, by the final system only.
+- No text cleaning: the model must handle messages as customers write them. Prompting and retrieval experiments do not fine-tune the Qwen assistant; training data is used for labelled examples and the retrieval index. Separate experiments train the classical reference, the causal-LM/VAE/GAN family models, and the optional Qwen LoRA adapter, using only the official training split.
+- Two fixed subsets are cut from the test file with `evaluation/make_eval_subset.py` and committed. Each 100-row subset contains at least one example of all 77 intents; the development and held-out rows do not overlap. The **development subset** is used by experiments to compare approaches. The **held-out subset** is reserved for the final system evaluation.
 - Why 100 rows: one run takes about 2 minutes on an 8 GB laptop, against about 1 hour for the full test file, and we ran 13 configurations. Why two subsets: the development subset was used to choose the final system, so its score is optimistic; the held-out subset gives an honest number.
+- The committed prompting and final-assistant result CSVs and accuracy figures in this report were produced with an earlier random 100-row sample (53 development intents and 57 held-out intents). The new stratified files cover all 77 intents, so rerun the model-dependent experiments before treating those earlier scores as results on the new subsets. The full official-split causal-LM/VAE/GAN benchmark is unaffected.
 
 **Which data each experiment used**
 
@@ -424,7 +425,7 @@ Also used where they applied: variability under sampling (Section 7) and the sch
 | Development (used to choose the approach) | 0.84 | 3 |
 | **Held-out (used once)** | **0.77** | 4 |
 
-- The held-out score is 0.07 lower. Part of this is the normal optimism of choosing the best of 13 systems on one set; part is sampling noise (the 95% interval on 100 rows is about ±0.08); and the held-out set covers more intents (57 against 53). 0.77 is the number to quote. It is level with the classical reference (0.79), not clearly above it: the model matches a trained classifier with no training, and in addition writes the reply and drives the tool call.
+- On the earlier random subsets, the held-out score was 0.07 lower. Part of this is the normal optimism of choosing the best of 13 systems on one set; part is sampling noise (the 95% interval on 100 rows is about ±0.08). That historical 0.77 result is not a score on the new all-intent held-out subset; rerun the final evaluation before quoting it for the updated split.
 - Reproducibility: the notebook re-ran every experiment from scratch and reproduced every number above. Greedy runs are identical to the character; seeded sampling runs are identical on the same hardware.
 
 **Failure analysis: the seven failure types**
@@ -489,8 +490,8 @@ We set out to build a reliable prompted system around a small pretrained languag
 ## Appendix A. Reproduction
 
 ```bash
-git clone https://github.com/2025paml556-bhoomika/banking-agent.git
-cd banking-agent
+git clone https://github.com/mohit-tendolkar-bits/Banking_Agent_Group23_BITS.git
+cd Banking_Agent_Group23_BITS
 uv sync
 
 uv run -m evaluation.make_eval_subset       # eval_subset.csv, heldout_subset.csv (already committed), seconds

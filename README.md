@@ -23,8 +23,8 @@ The project has two parts:
 ## Setup
 
 ```bash
-git clone https://github.com/2025paml556-bhoomika/banking-agent.git
-cd banking-agent
+git clone https://github.com/mohit-tendolkar-bits/Banking_Agent_Group23_BITS.git
+cd Banking_Agent_Group23_BITS
 uv sync
 ```
 
@@ -65,13 +65,14 @@ uv run -m src.llm
 ## Run the experiments
 
 Run the scripts in this order from the project root. Each one reads
-`evaluation/eval_subset.csv` (the same 100 test messages) and writes its
+`evaluation/eval_subset.csv` (the same 100 test messages, covering all 77
+intents) and writes its
 results as CSV to `evaluation/results/`.
 Times are for an M3 Mac with 8 GB RAM.
 
 | Step | Command | Writes | Time |
 |---|---|---|---|
-| Subsets | `uv run -m evaluation.make_eval_subset` | `eval_subset.csv`, `heldout_subset.csv` (already in the repo) | seconds |
+| Subsets | `uv run -m evaluation.make_eval_subset` | `eval_subset.csv`, `heldout_subset.csv` (100 rows each; all 77 intents) | seconds |
 | E1 baseline | `uv run -m src.baseline` | `results_baseline.csv` | 2 min |
 | E2 prompts | `uv run -m src.prompts` | `results_<style>.csv` (5 files) | 8 min |
 | E3 decoding | `uv run -m src.decoding` | `results_decoding_<setting>.csv` (5 files) | 8 min |
@@ -81,8 +82,11 @@ Times are for an M3 Mac with 8 GB RAM.
 | Final, held-out | `uv run -m evaluation.final_eval` | `results_heldout.csv` | 2 min |
 
 The experiments use `evaluation/eval_subset.csv` (development set) to compare
-approaches. `evaluation/final_eval.py` runs the chosen system once on
+approaches. Each subset contains at least one example of every intent.
+`evaluation/final_eval.py` runs the chosen system once on
 `evaluation/heldout_subset.csv`, 100 different test rows that no experiment used.
+Regenerating the subsets changes which rows are evaluated; rerun the dependent
+experiments before comparing their scores.
 
 Train and compare compact generative-family intent classifiers:
 
@@ -139,9 +143,12 @@ Full-data PEFT results should be recorded alongside prompting and RAG after
 running on an appropriate accelerator; the current CPU-only environment
 cannot produce a full fine-tuning benchmark.
 
-Previously run experiments have saved `results_*.csv` files in
-`evaluation/results/`, so their results can be read without rerunning.
-PEFT result files are generated only after running the LoRA command above.
+Existing prompt/RAG result CSVs were generated on the earlier random
+development/held-out samples. After regenerating the new all-intent subsets,
+rerun the model-dependent experiments before comparing their scores.
+The generative-family CSV uses the official full train/test splits and is
+separate from these subset results. PEFT result files are generated only
+after running the LoRA command above.
 
 To run an experiment with a larger model, set the `MODEL` variable before any command:
 
@@ -157,20 +164,21 @@ their outputs there.
 
 ## Notebooks
 
-`notebooks/banking_agent.ipynb` runs every command in the table above in
-order, shows the result tables, and runs the live demo. "Run all" takes
-about 21 minutes on an M3 Mac. The outputs are saved in the file, so you
-can read the results without running it. To run it in about one minute,
-skip the `%run -m <module>` cells; the result cells read the saved CSV
-files.
+`notebooks/banking_agent.ipynb` explains and runs the workflow, including the
+causal-LM/VAE/GAN family comparison, prompting/RAG/PEFT adaptation options,
+failure analysis, and the final assistant. Its setup cell clones this
+repository in Google Colab. Full Qwen and PEFT runs require adequate memory;
+PEFT results are displayed only after a full training run.
 
 The notebook imports the code from `main.py` and the `src/` modules. On
-Colab, the first cell clones the repository into the session, installs the
+Colab, the setup cell clones `https://github.com/mohit-tendolkar-bits/Banking_Agent_Group23_BITS`
+into the session and installs the
 dependencies, and links `evaluation/results/` to
 `MyDrive/banking-agent-results/<model name>/` in Google Drive, so the
 result files stay in Drive and nothing else is copied there. To run a
 different model on Colab, set `os.environ["MODEL"]` in that cell; the
-notebook clones the GitHub repository, so push your changes first.
+notebook uses the repository above, so push your changes there before
+starting a fresh Colab session.
 
 To open a notebook locally, open it in VS Code or Cursor and select the
 `.venv` Python as the kernel. The `ipykernel` package is already installed
@@ -194,8 +202,8 @@ by `uv sync`.
 | `evaluation/final_eval.py` | Runs the final system once on the held-out subset. |
 | `evaluation/generative_family_comparison.py` | Trains a causal GRU language model, TF-IDF VAE, and conditional TF-IDF auxiliary-classifier GAN; reports train/test intent accuracy. |
 | `evaluation/peft_lora_comparison.py` | Fine-tunes the Qwen causal LM with LoRA PEFT and evaluates intent accuracy on the development and held-out subsets. |
-| `evaluation/eval_subset.csv` | Development set: the 100 test messages used by every experiment. |
-| `evaluation/heldout_subset.csv` | Held-out set: 100 other test messages, used only by `final_eval.py`. |
+| `evaluation/eval_subset.csv` | Development set: 100 test messages covering all 77 intents. |
+| `evaluation/heldout_subset.csv` | Held-out set: 100 different test messages covering all 77 intents; used only by `final_eval.py`. |
 | `evaluation/results/results_*.csv` | Output of each experiment with the default model (Qwen2.5-1.5B). |
 | `docs/PROGRESS.md` | Step-by-step log: what we did, why, and what we found. |
 | `docs/FAILURES.md` | E6. Failure types and worked failure cases. |

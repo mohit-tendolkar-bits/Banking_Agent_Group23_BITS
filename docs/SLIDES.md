@@ -17,7 +17,7 @@ PCAM ZG516 Applied Generative AI, Group Major Project, Assignment 1
 
 Group _[number]_: _[name, ID]_ · _[name, ID]_ · _[name, ID]_ · _[name, ID]_
 
-Code: https://github.com/2025paml556-bhoomika/banking-agent
+Code: https://github.com/mohit-tendolkar-bits/Banking_Agent_Group23_BITS
 
 <!-- 0:30. One sentence: a customer writes one free-text message, the assistant finds the intent, calls the right tool, and replies. -->
 
